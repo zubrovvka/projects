@@ -55,19 +55,18 @@ BFS Route is: A B D C E F G
 
 ```mermaid
 graph LR
-    A --- |7| B
-    A === |5| D
-    B --- |8| C
-    B --- |9| D
-    B === |7| E
-    C === |5| E
-    D --- |15| E
-    D === |6| F
-    E --- |8| F
-    E === |9| G
-    F --- |11| G
-    linkStyle 1,4,5,7,9 stroke:#e63946,stroke-width:3px
-    linkStyle 0 stroke:#e63946,stroke-width:3px
+    A ===|7| B
+    A ===|5| D
+    B ---|8| C
+    B ---|9| D
+    B ===|7| E
+    C ===|5| E
+    D ---|15| E
+    D ===|6| F
+    E ---|8| F
+    E ===|9| G
+    F ---|11| G
+    linkStyle 0,1,4,5,7,9 stroke:#e63946,stroke-width:3px
 ```
 
 <sub>Красным выделены рёбра минимального остовного дерева (суммарный вес 39).</sub>
