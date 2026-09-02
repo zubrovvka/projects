@@ -1,9 +1,13 @@
 #include <algorithm>
-#include <clocale>
 #include <cstdlib>
 #include <iostream>
 #include <string>
 #include "list.h"
+#ifdef _WIN32
+#define NOMINMAX
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#endif
 
 using namespace std;
 
@@ -356,7 +360,7 @@ public:
 int main()
 {
 #ifdef _WIN32
-    setlocale(LC_ALL, "ru");
+    SetConsoleOutputCP(CP_UTF8); // исходник в UTF-8 — переключаем кодировку консоли Windows
 #endif
 
     AVLtree data;

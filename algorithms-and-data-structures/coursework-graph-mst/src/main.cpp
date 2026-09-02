@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <clocale>
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
@@ -24,9 +23,6 @@ string deletespaces(string sub) // удаляет из строки все пр�
 
 int main(int argc, char* argv[])
 {
-#ifdef _WIN32
-    setlocale(LC_ALL, "");
-#endif
     const string path = (argc > 1) ? argv[1] : DEFAULT_GRAPH_PATH;
 
     App app(path);
