@@ -90,11 +90,6 @@ cmake --build build
 - **Стиль:** `clang-format` (конфиг в корне), `.editorconfig`
 - **CI:** GitHub Actions — GCC на Ubuntu и MSVC на Windows
 
-## Авторы
-
-- **[zubrovvka](https://github.com/zubrovvka)** — лабораторные работы и курсовая
-- Учебная практика выполнена в команде: **@zubrovvka и команда** (гр. 1374)
-
 ## Лицензия
 
 [MIT](LICENSE)
