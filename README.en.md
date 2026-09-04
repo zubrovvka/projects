@@ -93,7 +93,7 @@ A prebuilt Windows x64 package of Palette Extractor is available in [`palette-ex
 ## Authors
 
 - **[zubrovvka](https://github.com/zubrovvka)** — lab assignments and coursework
-- The internship project was a team effort: **V. Zyryanov, V. Kolpachev, S. Moskvin** (group 1374), supervised by Yu. Prokopovich
+
 
 ## License
 
