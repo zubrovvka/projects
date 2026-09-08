@@ -58,10 +58,10 @@ cmake --build build
 | `src/mainwindow.h/.cpp` | класс `MainWindow`: слоты кнопок, `showPalette()` (алгоритм), `getDistanceBetweenColors()` |
 | `src/mainwindow.ui` | форма Qt Designer: область изображения, две кнопки, 6 пар «цвет + HEX» |
 | `src/CMakeLists.txt`, `src/palette-extractor.pro` | сборка через CMake и qmake |
-| `docs/report.pdf` | пояснительная записка к практике (11 стр.) |
+| `docs/report.pdf` | пояснительная записка к практике (11 стр., анонимизирована для публикации — имён нет) |
 | `examples/sunset.png` | тестовое изображение |
 | `dist/` | сборка для Windows |
 
 ## Авторы
 
-**[@zubrovvka](https://github.com/zubrovvka)** и команда — группа 1374
+**[@zubrovvka](https://github.com/zubrovvka)** и команда — группа 1374.

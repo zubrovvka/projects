@@ -56,3 +56,6 @@ x64/
 # OS
 .DS_Store
 Thumbs.db
+
+# Private: original (non-anonymized) internship report, never commit
+palette-extractor/docs/report.original.pdf
