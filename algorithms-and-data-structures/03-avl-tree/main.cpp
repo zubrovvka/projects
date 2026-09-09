@@ -216,9 +216,9 @@ class AVLtree
         }
     }
 
-    void printHelper(Node* root, string indent, bool last) // вывод дерева на экран
+    void printHelper(Node* node, string indent, bool last) // вывод дерева на экран
     {
-        if (root != nullptr)
+        if (node != nullptr)
         {
             cout << indent;
             if (last)
@@ -232,58 +232,58 @@ class AVLtree
                 indent += "|   ";
             }
 
-            cout << root->key << endl;
+            cout << node->key << endl;
 
-            printHelper(root->left, indent, false);
-            printHelper(root->right, indent, true);
+            printHelper(node->left, indent, false);
+            printHelper(node->right, indent, true);
         }
     }
 
-    void preorderPrint(Node* root)
+    void preorderPrint(Node* node)
     {
-        if (root == NULL) // Базовый случай
+        if (node == NULL) // Базовый случай
         {
             return;
         }
-        cout << root->key << " ";
-        preorderPrint(root->left);  // рекурсивный вызов левого поддерева
-        preorderPrint(root->right); // рекурсивный вызов правого поддерева
+        cout << node->key << " ";
+        preorderPrint(node->left);  // рекурсивный вызов левого поддерева
+        preorderPrint(node->right); // рекурсивный вызов правого поддерева
     }
 
-    void inorderPrint(Node* root)
+    void inorderPrint(Node* node)
     {
-        if (root == NULL) // Базовый случай
+        if (node == NULL) // Базовый случай
         {
             return;
         }
-        inorderPrint(root->left); // рекурсивный вызов левого поддерева
-        cout << root->key << " ";
-        inorderPrint(root->right); // рекурсивный вызов правого поддерева
+        inorderPrint(node->left); // рекурсивный вызов левого поддерева
+        cout << node->key << " ";
+        inorderPrint(node->right); // рекурсивный вызов правого поддерева
     }
 
-    void postorderPrint(Node* root)
+    void postorderPrint(Node* node)
     {
-        if (root == NULL) // Базовый случай
+        if (node == NULL) // Базовый случай
         {
             return;
         }
-        postorderPrint(root->left);  // рекурсивный вызов левого поддерева
-        postorderPrint(root->right); // рекурсивный вызов правого поддерева
-        cout << root->key << " ";
+        postorderPrint(node->left);  // рекурсивный вызов левого поддерева
+        postorderPrint(node->right); // рекурсивный вызов правого поддерева
+        cout << node->key << " ";
     }
 
-    void bfsOrder(Node* root)
+    void bfsOrder(Node* node)
     {
-        if (root == nullptr)
+        if (node == nullptr)
         {
             cout << "[]\n";
             return;
         }
         List<Node*> nodes;
-        List<int> keys(1, root->key);
-        if (root->left)
-            nodes.push_back(root->left);
-        nodes.push_back(root->right);
+        List<int> keys(1, node->key);
+        if (node->left)
+            nodes.push_back(node->left);
+        nodes.push_back(node->right);
         unsigned i;
         while (!nodes.empty())
         {

@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
                 if (MOD.getf(j) > MOD.getf(j + 1))
                 {
                     flag = false;
-                    edge tmp = MOD.get(j);
+                    tmp = MOD.get(j);
                     MOD.set(j, MOD.get(j + 1));
                     MOD.set(j + 1, tmp);
                 }

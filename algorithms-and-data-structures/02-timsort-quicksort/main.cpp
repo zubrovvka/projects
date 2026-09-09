@@ -150,17 +150,22 @@ void chooseAndSort(vector<int>& arr) // Выбор алгоритма, сорт�
     cout << "Выберите способ сортировки:" << "\n";
     cout << "1-timSort" << "\n";
     cout << "2-quickSort" << "\n";
-    cin >> variant;
-    if (variant != 1 && variant != 2)
+    if (!(cin >> variant) || (variant != 1 && variant != 2))
     {
         cout << "Выберите значения 1 или 2" << "\n";
         return;
     }
+    if (arr.size() <= 1)
+    {
+        printArr(arr);
+        cout << "Время сортировки: 0 мс" << "\n";
+        return;
+    }
     auto start = chrono::high_resolution_clock::now();
     if (variant == 1)
-        timSort(arr, arr.size());
+        timSort(arr, static_cast<int>(arr.size()));
     else
-        quickSort(arr, 0, arr.size() - 1);
+        quickSort(arr, 0, static_cast<int>(arr.size()) - 1);
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double, milli> duration = end - start;
     printArr(arr);
@@ -171,7 +176,11 @@ void manualInput() // Ввод вручную массива
 {
     int k;
     cout << "Введите колличество элементов в массиве: " << "\n";
-    cin >> k;
+    if (!(cin >> k) || k <= 0)
+    {
+        cout << "Некорректный размер массива" << "\n";
+        return;
+    }
     vector<int> arr(k);
     cout << "Введите значения элементов: " << "\n";
     for (int i = 0; i < k; i++)
@@ -186,96 +195,17 @@ void randomInput() // Заполнение массива рандомными �
 {
     int k;
     cout << "Введите колличество элементов в массиве: " << "\n";
-    cin >> k;
+    if (!(cin >> k) || k <= 0)
+    {
+        cout << "Некорректный размер массива" << "\n";
+        return;
+    }
     vector<int> arr(k);
     for (int i = 0; i < k; i++)
         arr[i] = rand() % 100 - 15;
     printArr(arr);
     chooseAndSort(arr);
 }
-
-template <class V> class dynamic_array
-{
-private:
-    int arraySize;
-
-public:
-    V* arrayData; // Создание пустого массива
-    dynamic_array()
-    {
-        arraySize = 0;
-        arrayData = NULL;
-    }
-    ~dynamic_array()
-    {
-        delete[] arrayData;
-    }
-    void push_back(V number) // Функция добавления элемента
-    {
-        V* tempArray;
-        tempArray = new V[arraySize + 1];
-        for (int i = 0; i < arraySize; i++)
-        {
-            tempArray[i] = arrayData[i];
-        }
-        delete[] arrayData;
-        arrayData = tempArray;
-        arraySize++;
-        arrayData[arraySize - 1] = number;
-    }
-    void pop_front() // Функция удаления элемента
-    {
-        V* tempArray;
-        tempArray = new V[arraySize - 1];
-        for (int i = 0; i < arraySize - 1; i++)
-        {
-            tempArray[i] = arrayData[i + 1];
-        }
-        arraySize--;
-        delete[] arrayData;
-        arrayData = tempArray;
-    }
-    void pop_back()
-    {
-        V* tempArray;
-        arraySize--;
-        tempArray = new V[arraySize];
-        for (int i = 0; i < arraySize; i++)
-        {
-            tempArray[i] = arrayData[i];
-        }
-        delete[] arrayData;
-        arrayData = tempArray;
-    }
-    void pop_erase(int position)
-    {
-        V* tempArray;
-        tempArray = new V[arraySize - 1];
-        for (int i = 0; i < position; i++)
-        {
-            tempArray[i] = arrayData[i];
-        }
-        for (int i = position; i < arraySize - 1; i++)
-        {
-            tempArray[i] = arrayData[i + 1];
-        }
-        arraySize--;
-        delete[] arrayData;
-        arrayData = tempArray;
-    }
-    V* getData()
-    {
-        return arrayData;
-    }
-    int getSize()
-    {
-        return arraySize;
-    }
-    void printSize()
-    {
-        cout << "size\n" << arraySize << endl;
-    }
-};
 
 int main()
 {

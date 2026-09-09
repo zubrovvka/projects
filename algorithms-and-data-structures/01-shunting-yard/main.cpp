@@ -342,7 +342,7 @@ int main()
     List<Operators> stackOp;
     string input;
 
-    int position = 0;
+    size_t position = 0;
     string buff;
     string temp;
 
@@ -371,16 +371,15 @@ int main()
         {
             position = input.find(" ");
 
-            if (position == -1)
+            if (position == string::npos)
             {
-                position = 1;
-                buff = input.substr(0, position);
+                buff = input;
                 input = "";
             }
             else
             {
                 buff = input.substr(0, position);
-                input = input.substr(position + 1, input.length());
+                input = input.substr(position + 1);
             }
 
             flag = 0;
@@ -427,12 +426,15 @@ int main()
                 }
                 else if (buff == ")")
                 {
-                    while (stackOp.get_head()->data.op != "(")
+                    while (stackOp.get_head() != NULL && stackOp.get_head()->data.op != "(")
                     {
                         cout << stackOp.get_head()->data.op << " ";
                         stackOp.deleteBack();
                     }
-                    stackOp.deleteBack();
+                    if (stackOp.get_head() != NULL)
+                    {
+                        stackOp.deleteBack();
+                    }
                 }
                 else
                     cout << buff << " ";
@@ -452,16 +454,15 @@ int main()
         {
             position = input.find(" ");
 
-            if (position == -1)
+            if (position == string::npos)
             {
-                position = 1;
-                buff = input.substr(0, position);
+                buff = input;
                 input = "";
             }
             else
             {
                 buff = input.substr(0, position);
-                input = input.substr(position + 1, input.length());
+                input = input.substr(position + 1);
             }
 
             flag = 0;
@@ -506,13 +507,16 @@ int main()
                     stackOp.PushBack(left_bracket);
                 else if (buff == ")")
                 {
-                    while (stackOp.get_head()->data.op != "(")
+                    while (stackOp.get_head() != NULL && stackOp.get_head()->data.op != "(")
                     {
                         temp = stackOp.get_head()->data.op;
                         yard.push_back(temp);
                         stackOp.deleteBack();
                     }
-                    stackOp.deleteBack();
+                    if (stackOp.get_head() != NULL)
+                    {
+                        stackOp.deleteBack();
+                    }
                 }
                 else
                 {

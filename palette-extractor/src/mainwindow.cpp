@@ -116,7 +116,7 @@ void MainWindow::showPalette(QImage image)
     {
         bool noMoreColors = false;
         QString colorName = keys[0];
-        QColor color = QColor::fromString(colorName);
+        QColor color(colorName);
         if (!palette.isEmpty())
         {
             bool itIsSimilar = false; // переменная показывает был ли уже отображен цвет близкий к нынешнему

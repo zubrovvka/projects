@@ -11,7 +11,7 @@ else()
     add_compile_options(-Wall -Wextra)
 endif()
 
-option(BUILD_PALETTE_EXTRACTOR "Build the Qt palette-extractor app (requires Qt 6)" OFF)
+option(BUILD_PALETTE_EXTRACTOR "Build the Qt palette-extractor app (requires Qt 5 or 6)" OFF)
 
 add_subdirectory(algorithms-and-data-structures)
 

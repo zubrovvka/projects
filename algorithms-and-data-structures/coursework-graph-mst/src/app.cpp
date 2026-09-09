@@ -142,7 +142,7 @@ void App::readMatrixFromFile()
         return;
     }
     getline(f_in, s);
-    len = s.length();
+    len = static_cast<int>(s.length());
 
     // Обработать вершины
     err = false;
@@ -203,7 +203,7 @@ void App::readMatrixFromFile()
     col = 0;
     while (!err && getline(f_in, s))
     {
-        len = s.length();
+        len = static_cast<int>(s.length());
         token = "";
         i = 0;
         val = 0;
